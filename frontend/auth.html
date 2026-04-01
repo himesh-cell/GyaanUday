@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup - Gyaanuday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .auth-container {
+        width: 100%;
+        max-width: 440px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
+    <div class="auth-container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <div style="width: 24px;"></div> <!-- Spacer to center the brand -->
+        <a class="brand" href="index.html" style="justify-content: center; margin-bottom: 0;">
+          <span class="brand-dot"></span>
+          <span>Gyaanuday</span>
+        </a>
+        <button type="button" class="btn theme-icon" onclick="toggleTheme()" style="background: transparent; border: none; font-size: 1.2rem; cursor: pointer;" aria-label="Toggle Theme">☀️</button>
+      </div>
+
+      <div class="auth-wrap glass">
+        <div class="auth-toggle">
+          <button class="tab active" data-mode="login">Login</button>
+          <button class="tab" data-mode="signup">Signup</button>
+        </div>
+        <form id="authForm" class="auth-form">
+          <h2 id="authTitle">Welcome Back</h2>
+          <p id="authStatusMessage" class="auth-status-message hidden"></p>
+          <label>
+            Email
+            <input id="authEmail" type="email" required placeholder="you@example.com" />
+          </label>
+          <label id="nameField" class="hidden">
+            Name
+            <input id="authName" type="text" placeholder="Your full name" />
+          </label>
+          <label id="passwordField">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>Password</span>
+              <a href="#" id="forgotPasswordLink" style="font-size: 0.8rem; color: var(--accent); text-decoration: none;">Forgot Password?</a>
+            </div>
+            <input id="authPassword" type="password" required placeholder="••••••••" />
+          </label>
+          <button id="authSubmitBtn" class="btn btn-primary" type="submit">Login</button>
+          
+          <div style="text-align: center; margin: 15px 0; color: var(--text-secondary); font-size: 0.9rem;">
+            &mdash; OR &mdash;
+          </div>
+          
+          <div id="googleSignInBtn" style="display: flex; justify-content: center;"></div>
+        </form>
+        
+        <form id="forgotPasswordForm" class="auth-form hidden">
+          <h2>Reset Password</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Enter your email and we will send you a 6-digit OTP.</p>
+          <label>
+            Email
+            <input id="forgotEmail" type="email" required placeholder="you@example.com" />
+          </label>
+          <button id="forgotSubmitBtn" class="btn btn-primary" type="submit">Send OTP</button>
+          <div style="text-align: center; margin-top: 15px;">
+            <a href="#" id="backToLoginLink1" style="font-size: 0.9rem; color: var(--text-secondary); text-decoration: none;">&larr; Back to Login</a>
+          </div>
+        </form>
+
+        <form id="resetPasswordForm" class="auth-form hidden">
+          <h2>Verify OTP</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Enter the 6-digit OTP sent to your email.</p>
+          <label>
+            6-Digit OTP
+            <input id="resetOtp" type="text" required placeholder="123456" maxlength="6" pattern="\d{6}" />
+          </label>
+          <label>
+            New Password
+            <input id="resetPassword" type="password" required placeholder="••••••••" minlength="6" />
+          </label>
+          <button id="resetSubmitBtn" class="btn btn-primary" type="submit">Update Password</button>
+          <div style="text-align: center; margin-top: 15px;">
+            <a href="#" id="backToLoginLink2" style="font-size: 0.9rem; color: var(--text-secondary); text-decoration: none;">&larr; Back to Login</a>
+          </div>
+        </form>
+      </div>
+      
+      <p style="text-align: center; margin-top: 24px; color: var(--text-secondary);">
+        Back to <a href="index.html" class="gradient-text">Home</a>
+      </p>
+    </div>
+
+    <div id="toastStack" class="toast-stack"></div>
+    <script src="script.js"></script>
+    <script>
+      // Initialize auth specific UI state if needed
+      document.addEventListener('DOMContentLoaded', () => {
+          // The main script.js handles setupAuth if the elements exist
+          // Since we are reusing script.js, it will bind the events.
+          // We just need to make sure updateAuthNavUI doesn't redirect improperly.
+      });
+    </script>
+  </body>
+</html>

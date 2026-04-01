@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gyaanuday - Smart Project Sharing Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <div class="bg-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
+    <header class="top-nav glass">
+      <a class="brand" href="#landing">
+        <span class="brand-dot"></span>
+        <span>Gyaanuday</span>
+      </a>
+      <nav class="nav-links" style="display: flex; align-items: center; gap: 1.5rem;">
+        <div style="position: relative; display: flex; align-items: center;">
+          <form id="navFriendSearchForm" class="nav-search-form">
+            <span class="nav-search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input type="text" id="navFriendSearchInput" class="nav-search-input" placeholder="Search users...">
+          </form>
+          <ul id="navFriendSearchResults"></ul>
+        </div>
+        <a href="#explore">Explore</a>
+        <a href="about.html">About</a>
+        <a href="network.html">Network</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <button type="button" class="btn theme-icon" onclick="toggleTheme()" style="background: transparent; border: none; font-size: 1.2rem; padding: 0 5px; cursor: pointer;" aria-label="Toggle Theme">☀️</button>
+        <a id="authNavLink" href="#auth">Login</a>
+        <button id="logoutNavBtn" class="btn btn-secondary nav-logout hidden" type="button">Logout</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="landing" class="page section active">
+        <div class="hero glass reveal">
+          <p class="eyebrow">SMART PROJECT SHARING PLATFORM</p>
+          <h1>
+            Build, share, and discover projects with
+            <span class="gradient-text">AI-powered insights</span>.
+          </h1>
+          <p class="lead">
+            A premium collaboration space for students, creators, and innovators.
+            Curate your work, connect with peers, and elevate every idea.
+          </p>
+          
+          <div class="platform-stats reveal">
+            <div class="stat-item">
+              <span id="statProjectsCount">...</span>
+              <p>Projects Shared</p>
+            </div>
+            <div class="stat-item">
+              <span id="statUsersCount">...</span>
+              <p>Active Users</p>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#explore" class="btn btn-primary">Explore Projects</a>
+            <a href="auth.html" class="btn btn-secondary">Upload Yours</a>
+          </div>
+        </div>
+
+      </section>
+      
+      <section id="explore" class="page section">
+        <div class="section-head reveal">
+          <h2>Explore Projects</h2>
+          <p>Discover trending innovations with instant smart filters.</p>
+        </div>
+
+        <div class="explore-controls glass reveal">
+          <div class="search-wrap">
+            <span>🔍</span>
+            <input id="searchInput" type="text" placeholder="Search projects, technologies, domains..." />
+          </div>
+          <div class="chips">
+            <button class="chip active" type="button" data-filter="all">All</button>
+            <button class="chip" type="button" data-filter="ai">AI</button>
+            <button class="chip" type="button" data-filter="web">Web</button>
+            <button class="chip" type="button" data-filter="iot">IoT</button>
+            <button class="chip" type="button" data-filter="popular">Popularity</button>
+          </div>
+        </div>
+
+        <div id="skeletonGrid" class="project-grid skeleton-grid">
+          <div class="skeleton-card glass"></div>
+          <div class="skeleton-card glass"></div>
+          <div class="skeleton-card glass"></div>
+          <div class="skeleton-card glass"></div>
+          <div class="skeleton-card glass"></div>
+          <div class="skeleton-card glass"></div>
+        </div>
+
+        <div id="projectGrid" class="project-grid hidden"></div>
+      </section>
+    </main>
+
+    <div id="projectModal" class="project-modal hidden" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-modal="true"></div>
+      <article class="project-modal-card glass" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <button id="projectModalClose" type="button" class="project-modal-close" aria-label="Close project details">
+          ×
+        </button>
+        <p id="projectModalTag" class="project-modal-tag"></p>
+        <h3 id="projectModalTitle"></h3>
+        <p id="projectModalSummary" class="project-modal-summary"></p>
+        <div id="projectModalContent" class="project-modal-content"></div>
+        
+        <div class="project-interactions" style="margin-top: 2rem;">
+          <div class="vote-actions" style="display: flex; gap: 10px; align-items: center;">
+            <button id="upvoteBtn" class="btn btn-secondary" style="padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">👍 <span id="upvoteCount">0</span></button>
+            <button id="downvoteBtn" class="btn btn-secondary" style="padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">👎 <span id="downvoteCount">0</span></button>
+          </div>
+          <div class="comments-section" style="margin-top: 1.5rem;">
+            <h4 style="margin-bottom: 10px; font-size: 1.1rem; color: var(--text-primary);">Comments</h4>
+            <div id="commentsList" style="margin-bottom: 1rem; max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;"></div>
+            <form id="commentForm" style="display: flex; gap: 10px;">
+              <input type="text" id="commentInput" placeholder="Write a comment..." style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text-primary);" required>
+              <button type="submit" class="btn btn-primary" style="padding: 10px 20px;">Post</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="modal-actions" style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+          <a id="projectModalDownload" href="#" class="btn btn-primary" download style="display: inline-flex; align-items: center; gap: 8px;">
+            <span>📥</span> Download Innovation
+          </a>
+        </div>
+      </article>
+    </div>
+
+
+
+    <footer style="margin-top: 4rem; padding: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); background: rgba(0,0,0,0.2); backdrop-filter: blur(10px);">
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1rem;">
+        <p style="margin: 0;">📧 Email: <a href="mailto:support@gyaanuday.com" style="color: #a5b4fc; text-decoration: none; font-weight: 500;">support@gyaanuday.com</a></p>
+        <p style="margin: 0;">💬 Discord: <a href="#" style="color: #a5b4fc; text-decoration: none; font-weight: 500;">Join our Community</a></p>
+      </div>
+      <p style="font-size: 0.85rem; margin: 0;">&copy; 2026 Gyaanuday. All rights reserved.</p>
+    </footer>
+
+    <div id="toastStack" class="toast-stack"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
