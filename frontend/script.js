@@ -2374,3 +2374,4 @@ document.addEventListener("DOMContentLoaded", init);
 // Minor UI enhancements for mobile
 // Prepare project for deployment
 // Finalize frontend layouts
+// Add inline documentation to backend
