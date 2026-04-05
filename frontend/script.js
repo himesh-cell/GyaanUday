@@ -2375,3 +2375,4 @@ document.addEventListener("DOMContentLoaded", init);
 // Prepare project for deployment
 // Finalize frontend layouts
 // Add inline documentation to backend
+// Tweak auth styling
