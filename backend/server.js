@@ -74,3 +74,4 @@ server.listen(PORT, () => {
 // Update dependency configurations
 // Minor bug fixes and optimizations
 // Format index.html for readability
+// Update frontend scripts structure
