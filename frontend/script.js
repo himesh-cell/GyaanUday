@@ -2376,3 +2376,4 @@ document.addEventListener("DOMContentLoaded", init);
 // Finalize frontend layouts
 // Add inline documentation to backend
 // Tweak auth styling
+// Refactor database connection string handling
