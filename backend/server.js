@@ -75,3 +75,4 @@ server.listen(PORT, () => {
 // Minor bug fixes and optimizations
 // Format index.html for readability
 // Update frontend scripts structure
+// Fix minor warnings in console
