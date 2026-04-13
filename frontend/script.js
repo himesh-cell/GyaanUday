@@ -2377,3 +2377,4 @@ document.addEventListener("DOMContentLoaded", init);
 // Add inline documentation to backend
 // Tweak auth styling
 // Refactor database connection string handling
+// Update styling for leaderboard
