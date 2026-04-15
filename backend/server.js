@@ -76,3 +76,4 @@ server.listen(PORT, () => {
 // Format index.html for readability
 // Update frontend scripts structure
 // Fix minor warnings in console
+// Improve network page accessibility
