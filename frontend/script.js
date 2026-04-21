@@ -2379,3 +2379,4 @@ document.addEventListener("DOMContentLoaded", init);
 // Refactor database connection string handling
 // Update styling for leaderboard
 // Add comments to user dashboard
+// Minor UI enhancements for mobile
