@@ -78,3 +78,4 @@ server.listen(PORT, () => {
 // Fix minor warnings in console
 // Improve network page accessibility
 // Clean up unused CSS rules
+// Enhance server error logging
