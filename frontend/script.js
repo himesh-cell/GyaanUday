@@ -2380,3 +2380,4 @@ document.addEventListener("DOMContentLoaded", init);
 // Update styling for leaderboard
 // Add comments to user dashboard
 // Minor UI enhancements for mobile
+// Prepare project for deployment
