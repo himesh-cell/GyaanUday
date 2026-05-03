@@ -1756,7 +1756,7 @@ function setupAuth() {
   setTimeout(() => {
     if (window.google && document.getElementById("googleSignInBtn")) {
       window.google.accounts.id.initialize({
-        client_id: "your_google_client_id_here", // REPLACE THIS LATER
+        client_id: "839038105434-hmhlfchn4a9rc5uh02orp21hkstjt7he.apps.googleusercontent.com",
         callback: window.handleGoogleCredentialResponse
       });
       window.google.accounts.id.renderButton(
