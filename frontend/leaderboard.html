@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard - Gyaanuday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .leaderboard-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        margin-top: 1.5rem;
+      }
+      .leaderboard-row {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .leaderboard-row:hover {
+        background: rgba(255, 255, 255, 0.06);
+        transform: scale(1.01);
+      }
+      .leaderboard-cell {
+        padding: 16px 20px;
+      }
+      .leaderboard-cell:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+      }
+      .leaderboard-cell:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+      .rank-1 { color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+      .rank-2 { color: #c0c0c0; font-weight: bold; }
+      .rank-3 { color: #cd7f32; font-weight: bold; }
+      .rank-other { color: var(--text-secondary); }
+    </style>
+  </head>
+  <body>
+    <div class="bg-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
+    <header class="top-nav glass">
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        <span>Gyaanuday</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#explore">Explore</a>
+        <a href="about.html">About</a>
+        <a href="network.html">Network</a>
+        <a href="leaderboard.html" class="active">Leaderboard</a>
+        <button type="button" class="btn theme-icon" onclick="toggleTheme()" style="background: transparent; border: none; font-size: 1.2rem; padding: 0 5px; cursor: pointer;" aria-label="Toggle Theme">☀️</button>
+        <a id="authNavLink" href="auth.html">Login</a>
+        <button id="logoutNavBtn" class="btn btn-secondary nav-logout hidden" type="button">Logout</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page section active" style="margin-top: 40px;">
+        <div class="section-head reveal">
+          <h2>Global Leaderboard</h2>
+          <p>The top innovators with the most popular projects.</p>
+        </div>
+
+        <div class="glass reveal" style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+          <table class="leaderboard-table">
+            <thead>
+              <tr style="text-align: left; color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                <th style="padding: 0 20px 10px;">Rank</th>
+                <th style="padding: 0 20px 10px;">Innovator</th>
+                <th style="padding: 0 20px 10px; text-align: center;">Projects</th>
+                <th style="padding: 0 20px 10px; text-align: right;">Total Score</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+              <!-- Rendered via JS -->
+              <tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-secondary);">Loading rankings...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top: 4rem; padding: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); background: rgba(0,0,0,0.2); backdrop-filter: blur(10px);">
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1rem;">
+        <p style="margin: 0;">📧 Email: <a href="mailto:support@gyaanuday.com" style="color: #a5b4fc; text-decoration: none; font-weight: 500;">support@gyaanuday.com</a></p>
+        <p style="margin: 0;">💬 Discord: <a href="#" style="color: #a5b4fc; text-decoration: none; font-weight: 500;">Join our Community</a></p>
+      </div>
+      <p style="font-size: 0.85rem; margin: 0;">&copy; 2026 Gyaanuday. All rights reserved.</p>
+    </footer>
+
+    <div id="toastStack" class="toast-stack"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

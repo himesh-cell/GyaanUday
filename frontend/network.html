@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Network - Gyaanuday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <header class="top-nav glass">
+    <a class="brand" href="index.html">
+      <span class="brand-dot"></span>
+      <span>Gyaanuday</span>
+    </a>
+    <nav class="nav-links" style="display: flex; align-items: center; gap: 1.5rem;">
+      <div style="position: relative; display: flex; align-items: center;">
+        <form id="navFriendSearchForm" class="nav-search-form">
+          <span class="nav-search-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="navFriendSearchInput" class="nav-search-input" placeholder="Search users...">
+        </form>
+        <ul id="navFriendSearchResults"></ul>
+      </div>
+      <a href="index.html">Home</a>
+      <a href="index.html#explore">Explore</a>
+      <a href="network.html" class="active">Network</a>
+      <a href="user-dashboard.html">User Dashboard</a>
+      <button type="button" class="btn theme-icon" onclick="toggleTheme()" style="background: transparent; border: none; font-size: 1.2rem; padding: 0 5px; cursor: pointer;" aria-label="Toggle Theme">☀️</button>
+      <button id="logoutNavBtn" class="btn btn-secondary nav-logout" type="button">Logout</button>
+    </nav>
+  </header>
+
+  <main style="padding-top: 100px; min-height: 100vh;">
+    <section class="page section active">
+      <div class="dashboard-header reveal" style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;" class="gradient-text">Your Network</h1>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.5;">Manage your connections, accept requests, and discover new creators.</p>
+      </div>
+
+      <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: flex-start;">
+        <!-- Left Column: Pending Requests & Search -->
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          <div class="activity-card glass reveal visible" style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Pending Requests</h3>
+            <div id="networkPagePendingRequests" style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="text-align: center; color: var(--text-secondary); padding: 1rem 0;">Loading requests...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Friends List -->
+        <div class="activity-card glass reveal visible" style="padding: 1.5rem;">
+          <h3 style="margin-bottom: 1rem; color: var(--text-primary);">My Friends</h3>
+          <div id="networkPageFriendsList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;">
+            <div style="text-align: center; color: var(--text-secondary); padding: 1rem 0; grid-column: 1 / -1;">Loading friends...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastStack" class="toast-stack"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Gyaanuday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
+    <header class="top-nav glass">
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        <span>Gyaanuday</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#explore">Explore</a>
+        <a href="about.html" class="active">About</a>
+        <a href="network.html">Network</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <button type="button" class="btn theme-icon" onclick="toggleTheme()" style="background: transparent; border: none; font-size: 1.2rem; padding: 0 5px; cursor: pointer;" aria-label="Toggle Theme">☀️</button>
+        <a id="authNavLink" href="auth.html">Login</a>
+        <button id="logoutNavBtn" class="btn btn-secondary nav-logout hidden" type="button">Logout</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="page section active" style="margin-top: 40px;">
+        <div class="section-head reveal">
+          <h2>About Us</h2>
+          <p>The vision and mission behind Gyaanuday.</p>
+        </div>
+
+        <div class="about-container reveal" style="max-width: 800px; margin: 0 auto;">
+          <div class="glass" style="padding: 3rem; border-radius: 20px; text-align: left; line-height: 1.8;">
+            <h3 style="color: #a5b4fc; font-size: 1.5rem; margin-bottom: 1rem;">Our Mission</h3>
+            <p style="color: #e2e8f0; margin-bottom: 2rem; font-size: 1.1rem;">
+              Gyaanuday was built with a simple mission: to bridge the gap between brilliant student ideas and the rest of the world. We believe that too many incredible projects are lost on hard drives after grading, and we want to create a space where innovation lives on, inspires others, and builds your portfolio.
+            </p>
+
+            <h3 style="color: #a5b4fc; font-size: 1.5rem; margin-bottom: 1rem;">How It Works</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2rem;">
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #818cf8;">
+                <strong style="color: var(--text-primary); font-size: 1.1rem;">1. Upload & Showcase</strong>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">Share your projects with detailed descriptions, links, and tags. Let the community see what you've built.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #c084fc;">
+                <strong style="color: var(--text-primary); font-size: 1.1rem;">2. Explore & Discover</strong>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">Use our smart filters to explore domains like AI, Web, and IoT. Find inspiration for your next big idea.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #f472b6;">
+                <strong style="color: var(--text-primary); font-size: 1.1rem;">3. Connect & Engage</strong>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">Upvote the best innovations and leave comments to provide feedback or collaborate with other creators.</p>
+              </div>
+            </div>
+
+            <h3 style="color: #a5b4fc; font-size: 1.5rem; margin-bottom: 1rem;">Who Is It For?</h3>
+            <p style="color: #e2e8f0; font-size: 1.1rem;">
+              Whether you are a computer science student looking to display your final year project, a self-taught developer looking for feedback, or a recruiter searching for top talent, Gyaanuday is designed for you. Join our community and let's build the future together.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top: 4rem; padding: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-secondary); background: rgba(0,0,0,0.2); backdrop-filter: blur(10px);">
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1rem;">
+        <p style="margin: 0;">📧 Email: <a href="mailto:support@gyaanuday.com" style="color: #a5b4fc; text-decoration: none; font-weight: 500;">support@gyaanuday.com</a></p>
+        <p style="margin: 0;">💬 Discord: <a href="#" style="color: #a5b4fc; text-decoration: none; font-weight: 500;">Join our Community</a></p>
+      </div>
+      <p style="font-size: 0.85rem; margin: 0;">&copy; 2026 Gyaanuday. All rights reserved.</p>
+    </footer>
+
+    <div id="toastStack" class="toast-stack"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
